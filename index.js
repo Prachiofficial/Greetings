@@ -30,6 +30,24 @@ app.get('/', (req, res) => {
   })
 });
 
+//Admin Routes
+
+function generateAccessToken(username, password) {
+    return jwt.sign({username: username, password: password }, process.env.JWT_SECRET, { expiresIn: '365d' });
+  }
+
+
+app.post(`/admin/createUser`, (req, res)=> {
+    if(req.query.key != process.env.ADMIN_KEY){
+        res.status(401).json({
+            message: 'You are not authorized to do this'
+        })
+    }else{
+    const token = generateAccessToken({ username: req.body.username, password: req.body.password });
+    res.json({token: token, state: 'success'});
+    }
+})
+
 
 //Starting the server
 
