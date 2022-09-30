@@ -25,6 +25,10 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true  }).then(() => {
 const User = require('./models/user');
 const user = require('./models/user');
 
+// EJS
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 //Body Parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -51,21 +55,16 @@ function authenticateToken(req, res, next) {
   }
 
 app.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'Welcome to the Greetings API 🎉',
-    endpoint: 'Please use the /v1/verify endpoint to do the stuff',
-    note: 'Please use your own API key to test the API get one from https://greetings-api.encodin.me/'
-  })
+  res.render('user')
 });
 
-app.get('/v1/verify', authenticateToken, (req, res) => {
+app.post('/v1/verify', authenticateToken, (req, res) => {
     let text = req.body.message;
     if(!req.body.message){
         res.status(400).json({
             message: 'Please provide a message'
         })
     }else {
-        //Check if the message is a greeting
         let greeting = false;
         let greetingType = '';
         types.greetings.forEach(type => {
@@ -77,19 +76,19 @@ app.get('/v1/verify', authenticateToken, (req, res) => {
         if(greeting){
             res.status(200).json({
                 message: 'The message is a greeting',
-                type: greetingType
+                type: greetingType,
+                greeting: true
             })
         }
         else {
             res.status(400).json({
                 message: 'The message is not a greeting',
-                type: 'none'
+                type: 'none',
+                greeting: false
             })
         }
     }
 });
-
-//Admin Routes
 
 function generateAccessToken(username, password) {
     return jwt.sign({username: username, password: password }, process.env.JWT_SECRET, { expiresIn: '365d' });
