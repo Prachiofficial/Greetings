@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const jwt = require('jsonwebtoken');
+const types = require('./greetings.json');
 
 
 //Cors
@@ -40,7 +41,6 @@ function authenticateToken(req, res, next) {
     if (token == null) return res.sendStatus(401)
   
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-      console.log(err)
   
       if (err) return res.sendStatus(403)
   
@@ -59,9 +59,26 @@ app.get('/', (req, res) => {
 });
 
 app.get('/v1/verify', authenticateToken, (req, res) => {
-    let token = req.headers.authorization.split(' ')[1];
-    let text = req.query.message;
-    
+    if(!req.body.message){
+        res.status(400).json({
+            message: 'Please provide a message'
+        })
+    }else {
+    let text = req.body.message;
+    types.greetings.forEach(greeting => {
+        if (greeting.message == text) {
+            res.status(200).json({
+                message: greeting.message,
+                note: 'This is a greeting message',
+            })
+        } else {
+            res.status(400).json({
+                message: text,
+                note: 'This is not a greeting message',
+            })
+        }
+    });
+    }
 });
 
 //Admin Routes
