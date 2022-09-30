@@ -59,25 +59,33 @@ app.get('/', (req, res) => {
 });
 
 app.get('/v1/verify', authenticateToken, (req, res) => {
+    let text = req.body.message;
     if(!req.body.message){
         res.status(400).json({
             message: 'Please provide a message'
         })
     }else {
-    let text = req.body.message;
-    types.greetings.forEach(greeting => {
-        if (greeting.message == text) {
+        //Check if the message is a greeting
+        let greeting = false;
+        let greetingType = '';
+        types.greetings.forEach(type => {
+            if(text.includes(type)){
+                greeting = true;
+                greetingType = type;
+            }
+        });
+        if(greeting){
             res.status(200).json({
-                message: greeting.message,
-                note: 'This is a greeting message',
-            })
-        } else {
-            res.status(400).json({
-                message: text,
-                note: 'This is not a greeting message',
+                message: 'The message is a greeting',
+                type: greetingType
             })
         }
-    });
+        else {
+            res.status(400).json({
+                message: 'The message is not a greeting',
+                type: 'none'
+            })
+        }
     }
 });
 
