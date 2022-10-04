@@ -5,9 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify Greetings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    div.main
+<body class="bg-gradient-to-r selection:text-black from-[#fffa] via-gray-100 to-gray-200">
+    <div class="mx-2">
+    <div class="text-center text-5xl text-gray-900 font-bold">Greeting Verification</div>
+    <div class="mt-3 md:text-2xl text-xl text-center font-medium text-gray-600">Free JSON Api to verify either a message is a greeting or not.</div>
+    <div class="buttons mt-4 flex flex-col space-y-2 items-center sm:flex-row space-x-3 justify-center">
+        <span class="layer-1 sm:mt-2 flex flex-row space-x-2">
+            <div class="group [transform:translateZ(0)] px-3 py-2 cursor-pointer rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-sky-600 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"><span class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500 font-semibold flex justify-center">About</span></div>        
+            <div class="group [transform:translateZ(0)] px-3 py-2 cursor-pointer rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-sky-600 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"><span class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500 font-semibold flex justify-center">Test API</span></div>  
+        </span>
+        <span class="layer-2 flex flex-row space-x-2">
+            <div class="group [transform:translateZ(0)] px-3 py-2 cursor-pointer rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-sky-600 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"><span class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500 font-semibold flex justify-center">Get Auth Token</span></div>
+            <div class="group [transform:translateZ(0)] px-3 py-2 cursor-pointer rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-sky-600 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"><span class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500 font-semibold flex justify-center">Email Us</span></div>        
+        </span>
+    </div>
+    <div class="mt-4  border-[0.25px] border-slate-700">
+    </div>
+    <div class="mx-80 mt-8 text-center text-xl font-medium">
+        <span class=" text-gray-900">
+            Just include the api with your auth token in the header and send a post request with the message in the body.
+        </span>
+        <div class="mt-8">
+            <span class="text-gray-900 font-bold">API URL:</span>
+            <span id="api" class="cursor-pointer text-gray-600">https://www.verifygreetings.tech/api/v1</span>
+        </div>
+    </div>
+    </div>
+    <script>
+        document.getElementById("api").addEventListener("click", function(){
+            window.location.href = "https://www.verifygreetings.tech/api/v1";
+        });
+    </script>
 </body>
 </html>
