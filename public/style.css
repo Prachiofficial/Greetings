@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.useCase {
+    @apply text-gray-700 font-semibold text-xl py-3 mb-6;
+}
