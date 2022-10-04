@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify Greetings</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +14,7 @@
     <div class="mt-3 md:text-2xl text-xl text-center font-medium text-gray-600">Free JSON Api to verify either a message is a greeting or not.</div>
     <div class="buttons mt-4 flex flex-col space-y-2 items-center sm:flex-row space-x-3 justify-center">
         <span class="layer-1 sm:mt-2 flex flex-row space-x-2">
-            <div class="group [transform:translateZ(0)] px-3 py-2 cursor-pointer rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-sky-600 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"><span class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500 font-semibold flex justify-center">About</span></div>        
+            <a href="#uses"><div class="group [transform:translateZ(0)] px-3 py-2 cursor-pointer rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-sky-600 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"><span class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500 font-semibold flex justify-center">Use Cases</span></div></a>       
             <div class="group [transform:translateZ(0)] px-3 py-2 cursor-pointer rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-sky-600 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"><span class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500 font-semibold flex justify-center">Test API</span></div>  
         </span>
         <span class="layer-2 flex flex-row space-x-2">
@@ -23,18 +22,48 @@
             <div class="group [transform:translateZ(0)] px-3 py-2 cursor-pointer rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-sky-600 before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[6] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"><span class="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500 font-semibold flex justify-center">Email Us</span></div>        
         </span>
     </div>
-    <div class="mt-4  border-[0.25px] border-slate-700">
+    <div class="mt-4 w-[70%] text-center mx-auto border-[0.25px] border-slate-700">
     </div>
-    <div class="mx-80 mt-8 text-center text-xl font-medium">
+    <div class="md:w-[60%] mx-auto mt-8 text-left text-xl font-medium">
         <span class=" text-gray-900">
             Just include the api with your auth token in the header and send a post request with the message in the body.
         </span>
-        <div class="mt-8">
+        <div class="mt-8 text-center">
             <span class="text-gray-900 font-bold">API URL:</span>
             <span id="api" class="cursor-pointer text-gray-600">https://www.verifygreetings.tech/api/v1</span>
         </div>
+        <div id="uses" class="mt-8">
+            <div class="text-4xl text-left text-gray-900 font-bold">Use Cases</div>
+            <div class="mt-4 text-gray-600 text-left">
+                Whats the best thing for a chatbot to do like basically what the user is saying to it and according to that, it will reply. Well you must know that we usually starts the conversation with a greeting but sometimes not, this can be frustrating for new developers who are trying to make a chatBot , so this is an api made for them that will identify whether the message is a greeting or not.<br><span class="text-2xl mt-2 font-semibold text-gray-900">Some other use cases are: </span><br> <span class="useCase">
+                1. Chatbots
+                </span><br>
+                <span class="useCase">
+                2. Email Filters
+                </span><br>
+                <span class="useCase">
+                3. UserDashboards
+                </span><br>
+                <span class="useCase">
+                    4. Voice Assistants
+                </span><br>
+                <span class="useCase">
+                    5. In Robots
+                </span><br>
+                <span class="useCase">
+                    6. In AI Applications
+                </span><br>
+                <span class="useCase">
+                    7. Email Marketing
+                </span><br>
+                <span class="useCase">
+                    8. And Many More
+                </span>
+            </div>
+        </div>
     </div>
     </div>
+    <footer class="text-center mt-12 text-lg font-semibold text-gray-500">Made with ❤ by <span class="text-blue-500 cursor-pointer underline-offset-1 hover:underline hover:decoration-blue-500 ">@Prachi</span> and <span class="text-blue-500 cursor-pointer underline-offset-1 hover:underline hover:decoration-blue-500">@Harshit</span></footer>
     <script>
         document.getElementById("api").addEventListener("click", function(){
             window.location.href = "https://www.verifygreetings.tech/api/v1";
